@@ -2,13 +2,19 @@
   <div id="app">
     <main>
       <div class="search-box">
-        <input type="text" class="search-bar" placeholder="Search..."/>
+        <input 
+          type="text" 
+          class="search-bar" 
+          placeholder="Search..."
+          v-model="query"
+          @keypress="fetchWeather" 
+        />
       </div>
 
-      <div class="weather-wrap">
+      <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
         <div class="location-box">
-          <div class="location">Ta' Xbiex</div>
-          <div class="date">Sunday 11 April 2021</div>
+          <div class="location">{{ weather.name }}, {{ weather.sys.country }}</div>
+          <div class="date">Monday 12 April 2021</div>
         </div>
         <div class="weather-box">
           <div class="temp">14°c</div>
@@ -24,7 +30,23 @@ export default {
   name: 'App',
   data () {
     return {
-      api_key: '08f1525958fbc6584f628b6dac25a906'
+      api_key: '08f1525958fbc6584f628b6dac25a906',
+      url_base: 'https://api.openweathermap.org/data/2.5/',
+      query: '',
+      weather: {}
+    }
+  },
+  methods: {
+    fetchWeather (e) {
+      if (e.key == "Enter") {
+        fetch(`${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`)
+          .then(res => {
+            return res.json();
+          }).then(this.setResults);
+      }
+    },
+    setResults (results) {
+      this.weather = results;
     }
   }
 }
@@ -111,6 +133,14 @@ main {
   background-color: rgba(255, 255, 255, 0.25);
   border-radius: 16px;
   margin: 30px 0px;
-  box-shadow: 3px 6px rgba(255, 255, 255, 0.25);
+  box-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.weather-box .weather {
+  color: white;
+  font-size: 48px;
+  font-weight: 700;
+  font-style: italic;
+  text-shadow: 3px 6px rgba(0, 0, 0, 0.25)
 }
 </style>
