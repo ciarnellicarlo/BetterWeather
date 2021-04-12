@@ -17,8 +17,8 @@
           <div class="date">Monday 12 April 2021</div>
         </div>
         <div class="weather-box">
-          <div class="temp">14°c</div>
-          <div class="weather">Cloudy</div>
+          <div class="temp">{{ Math.round(weather.main.temp) }}°c</div>
+          <div class="weather">{{ weather.weather[0].main }}</div>
         </div>
       </div>
     </main>
