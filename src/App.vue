@@ -78,7 +78,8 @@ export default {
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: blue;
+      background: rgb(167,207,242);
+      background: linear-gradient(210deg, rgba(167,207,242,1) 0%, rgba(75,148,242,1) 50%, rgb(23, 35, 56) 100%);
 
       #app {
       background-image: url('./assets/cold-bg.jpg');
@@ -170,7 +171,8 @@ export default {
       }
     }
     #container.warm-container{
-        background-color: red;
+        background: rgb(242,160,160);
+        background: linear-gradient(217deg, rgba(242,160,160,1) 0%, rgba(242,82,170,1) 50%, rgba(34,32,89,1) 100%); 
       }
   }
 }
