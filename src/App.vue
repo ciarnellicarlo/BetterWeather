@@ -143,6 +143,7 @@ export default {
         font-weight: 300;
         font-style: italic;
         text-align: center;
+        text-shadow: 1px 2px rgba(0, 0, 0, 0.25);
       }
 
       .weather-box {
@@ -153,7 +154,7 @@ export default {
         display: inline-block;
         padding: 10px 25px;
         color: white;
-        font-size: 102px;
+        font-size: 82px;
         font-weight: 900;
         text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
         background-color: rgba(255, 255, 255, 0.25);
