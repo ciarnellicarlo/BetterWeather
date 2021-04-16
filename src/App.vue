@@ -1,5 +1,6 @@
 <template>
   <div id="container" :class="containerTemperature">
+    <h1>BetterWeather</h1>
     <main id="app" :class="appTemperature">
         <div class="search-box">
           <input 
@@ -39,13 +40,13 @@ export default {
   computed: {
     containerTemperature: function () {
     return {
-      'warm-container': typeof this.weather.main != 'undefined' && this.weather.main.temp > 18,
-      'cold-container': typeof this.weather.main != 'undefined' && this.weather.main.temp < 4
+      'warm-container': typeof this.weather.main != 'undefined' && this.weather.main.temp > 20,
+      'cold-container': typeof this.weather.main != 'undefined' && this.weather.main.temp < 8
     }
   }, appTemperature: function () {
     return {
-      'warm': typeof this.weather.main != 'undefined' && this.weather.main.temp > 18,
-      'cold': typeof this.weather.main != 'undefined' && this.weather.main.temp < 4
+      'warm': typeof this.weather.main != 'undefined' && this.weather.main.temp > 20,
+      'cold': typeof this.weather.main != 'undefined' && this.weather.main.temp < 8
     }
   }
   },
@@ -87,12 +88,22 @@ export default {
     font-family: 'montserrat', sans-serif;
 
     #container {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       height: 100vh;
       background: rgb(167,207,242);
-      background: linear-gradient(210deg, #BDF2F2 0%, #34A6BF 50%, #074E8C 100%);
+      background: linear-gradient(to bottom, #BDF2F2 0%, #34A6BF 50%, #074E8C 100%);
+
+      h1 {
+        position: absolute;
+        top: 6vh;
+        color: white;
+        text-shadow: 1px 3px 2px rgba(0, 0, 0, 0.25);
+        font-style: oblique;
+      }
 
       #app {
       background-image: url('./assets/cold.jpg');
@@ -190,11 +201,11 @@ export default {
     }
     #container.warm-container{
         background: rgb(242,160,160);
-        background: linear-gradient(217deg, rgba(242,160,160,1) 0%, rgba(242,82,170,1) 50%, rgba(34,32,89,1) 100%); 
+        background: linear-gradient(to bottom right, rgba(242,160,160,1) 0%, rgba(242,82,170,1) 50%, rgba(34,32,89,1) 100%); 
       }
     #container.cold-container {
         background: #D9D9D9;
-        background: linear-gradient(217deg, #e4e3e3 0%, #B4B7BF 50%, #909197 100%); 
+        background: linear-gradient(to bottom left, #f0efef 0%, #B4B7BF 50%, #909197 100%);
       }
   }
 }
