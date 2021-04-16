@@ -1,5 +1,5 @@
 <template>
-  <div id="container" :class="typeof weather.main != 'undefined' && weather.main.temp > 18 ? 'warm-container' : ''">
+  <div id="container" :class="temperature">
     <main id="app" :class="typeof weather.main != 'undefined' && weather.main.temp > 18 ? 'warm' : ''">
         <div class="search-box">
           <input 
@@ -35,6 +35,14 @@ export default {
       query: '',
       weather: {}
     }
+  },
+  computed: {
+    temperature: function () {
+    return {
+      'warm-container': typeof this.weather.main != 'undefined' && this.weather.main.temp > 18,
+      'cold-container': typeof this.weather.main != 'undefined' && this.weather.main.temp < 4
+    }
+  }
   },
   methods: {
     fetchWeather (e) {
@@ -79,10 +87,10 @@ export default {
       align-items: center;
       height: 100vh;
       background: rgb(167,207,242);
-      background: linear-gradient(210deg, rgba(167,207,242,1) 0%, rgba(75,148,242,1) 50%, rgb(23, 35, 56) 100%);
+      background: linear-gradient(210deg, #BDF2F2 0%, #34A6BF 50%, #074E8C 100%);
 
       #app {
-      background-image: url('./assets/cold-bg.jpg');
+      background-image: url('./assets/cold.jpg');
       background-size: cover;
       background-position: bottom;
       transition: 0.4s;
@@ -93,7 +101,7 @@ export default {
       }
 
       #app.warm {
-        background-image: url('./assets/warm-bg.jpg')
+        background-image: url('./assets/warm.jpg')
       }
 
       main {
@@ -134,7 +142,7 @@ export default {
         font-size: 32px;
         font-weight: 500;
         text-align: center;
-        text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
+        text-shadow: 1px 3px 2px rgba(0, 0, 0, 0.25);
       }
 
       .location-box .date {
@@ -143,7 +151,7 @@ export default {
         font-weight: 300;
         font-style: italic;
         text-align: center;
-        text-shadow: 1px 2px rgba(0, 0, 0, 0.25);
+        text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25);
       }
 
       .weather-box {
@@ -156,7 +164,7 @@ export default {
         color: white;
         font-size: 82px;
         font-weight: 900;
-        text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+        text-shadow: 3px 6px 1px rgba(0, 0, 0, 0.25);
         background-color: rgba(255, 255, 255, 0.25);
         border-radius: 16px;
         margin: 30px 0px;
@@ -168,12 +176,16 @@ export default {
         font-size: 48px;
         font-weight: 700;
         font-style: italic;
-        text-shadow: 3px 6px rgba(0, 0, 0, 0.25)
+        text-shadow: 3px 6px 1px rgba(0, 0, 0, 0.25)
       }
     }
     #container.warm-container{
         background: rgb(242,160,160);
         background: linear-gradient(217deg, rgba(242,160,160,1) 0%, rgba(242,82,170,1) 50%, rgba(34,32,89,1) 100%); 
+      }
+    #container.cold-container {
+        background: #D9D9D9;
+        background: linear-gradient(217deg, #e4e3e3 0%, #B4B7BF 50%, #909197 100%); 
       }
   }
 }
