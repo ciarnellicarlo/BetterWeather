@@ -1,6 +1,6 @@
 <template>
-  <div id="container" :class="temperature">
-    <main id="app" :class="typeof weather.main != 'undefined' && weather.main.temp > 18 ? 'warm' : ''">
+  <div id="container" :class="containerTemperature">
+    <main id="app" :class="appTemperature">
         <div class="search-box">
           <input 
             type="text" 
@@ -37,10 +37,15 @@ export default {
     }
   },
   computed: {
-    temperature: function () {
+    containerTemperature: function () {
     return {
       'warm-container': typeof this.weather.main != 'undefined' && this.weather.main.temp > 18,
       'cold-container': typeof this.weather.main != 'undefined' && this.weather.main.temp < 4
+    }
+  }, appTemperature: function () {
+    return {
+      'warm': typeof this.weather.main != 'undefined' && this.weather.main.temp > 18,
+      'cold': typeof this.weather.main != 'undefined' && this.weather.main.temp < 4
     }
   }
   },
@@ -102,6 +107,10 @@ export default {
 
       #app.warm {
         background-image: url('./assets/warm.jpg')
+      }
+
+      #app.cold {
+        background-image: url('./assets/coldd.jpg')
       }
 
       main {
