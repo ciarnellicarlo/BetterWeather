@@ -12,6 +12,8 @@
           />
         </div>
 
+        <IconAnimation/>
+
         <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
           <div class="location-box">
             <div class="location">{{ weather.name }}, {{ weather.sys.country }}</div>
@@ -27,8 +29,11 @@
 </template>
 
 <script>
+import IconAnimation from "./components/IconAnimation"
+
 export default {
   name: 'App',
+  components: { IconAnimation },
   data () {
     return {
       api_key: '08f1525958fbc6584f628b6dac25a906',
@@ -41,12 +46,12 @@ export default {
     containerTemperature: function () {
     return {
       'warm-container': typeof this.weather.main != 'undefined' && this.weather.main.temp > 20,
-      'cold-container': typeof this.weather.main != 'undefined' && this.weather.main.temp < 8
+      'cold-container': typeof this.weather.main != 'undefined' && this.weather.main.temp < 9
     }
   }, appTemperature: function () {
     return {
       'warm': typeof this.weather.main != 'undefined' && this.weather.main.temp > 20,
-      'cold': typeof this.weather.main != 'undefined' && this.weather.main.temp < 8
+      'cold': typeof this.weather.main != 'undefined' && this.weather.main.temp < 9
     }
   }
   },
@@ -175,7 +180,7 @@ export default {
       }
 
       .weather-box {
-        text-align: center
+        text-align: center;
       }
 
       .weather-box .temp {
