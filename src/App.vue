@@ -122,6 +122,7 @@ export default {
       border-radius: 20px;
       box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
       position: relative;
+      overflow: hidden;
       }
 
       #app.warm {
@@ -170,7 +171,7 @@ export default {
         font-size: 32px;
         font-weight: 500;
         text-align: center;
-        text-shadow: 1px 3px 2px rgba(0, 0, 0, 0.25);
+        text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.4);
       }
 
       .location-box .date {
@@ -179,7 +180,7 @@ export default {
         font-weight: 300;
         font-style: italic;
         text-align: center;
-        text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25);
+        text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.4);
       }
 
       .weather-box {
@@ -192,11 +193,11 @@ export default {
         color: white;
         font-size: 82px;
         font-weight: 900;
-        text-shadow: 3px 6px 1px rgba(0, 0, 0, 0.25);
-        background-color: rgba(255, 255, 255, 0.25);
+        text-shadow: 3px 6px rgba(0, 0, 0, 0.4);
+        background-color: rgba(255, 255, 255, 0.4);
         border-radius: 16px;
         margin: 30px 0px;
-        box-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+        box-shadow: 3px 6px rgba(0, 0, 0, 0.4);
       }
 
       .weather-box .weather {
