@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: "IconAnimation"
+    name: "CloudsAnimation"
 }
 </script>
 
@@ -19,7 +19,7 @@ export default {
         border-radius: 1000px;
         opacity: 0.9;
         animation: wind 6s infinite linear;
-        filter: drop-shadow(0px 0px 2px);
+        filter: drop-shadow(0px 0px 1px);
     }
 
     .cloud.one {

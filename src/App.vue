@@ -12,8 +12,11 @@
           />
         </div>
 
-        <IconAnimation v-if="weather.weather[0].main=='Clouds'">
-        </IconAnimation>
+        <CloudsAnimation v-if="weather.weather[0].main=='Clouds'">
+        </CloudsAnimation>
+
+        <SunAnimation v-else-if="weather.weather[0].main=='Clear'">
+        </SunAnimation>
 
         <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
           <div class="location-box">
@@ -30,11 +33,15 @@
 </template>
 
 <script>
-import IconAnimation from "./components/IconAnimation"
+import CloudsAnimation from "./components/CloudsAnimation"
+import SunAnimation from "./components/SunAnimation"
 
 export default {
   name: 'App',
-  components: { IconAnimation },
+  components: { 
+    CloudsAnimation, 
+    SunAnimation 
+    },
   data () {
     return {
       api_key: '08f1525958fbc6584f628b6dac25a906',
