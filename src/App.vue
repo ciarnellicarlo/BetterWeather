@@ -18,6 +18,9 @@
         <SunAnimation v-else-if="weather.weather[0].main=='Clear'">
         </SunAnimation>
 
+        <NoAnimation v-else>
+        </NoAnimation>
+
         <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
           <div class="location-box">
             <div class="location">{{ weather.name }}, {{ weather.sys.country }}</div>
@@ -35,12 +38,14 @@
 <script>
 import CloudsAnimation from "./components/CloudsAnimation"
 import SunAnimation from "./components/SunAnimation"
+import NoAnimation from "./components/NoAnimation"
 
 export default {
   name: 'App',
   components: { 
     CloudsAnimation, 
-    SunAnimation 
+    SunAnimation,
+    NoAnimation
     },
   data () {
     return {
