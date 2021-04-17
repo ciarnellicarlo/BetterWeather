@@ -12,7 +12,8 @@
           />
         </div>
 
-        <IconAnimation/>
+        <IconAnimation v-if="weather.weather[0].main=='Clouds'">
+        </IconAnimation>
 
         <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
           <div class="location-box">
