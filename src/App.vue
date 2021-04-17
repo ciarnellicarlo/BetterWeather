@@ -58,11 +58,13 @@ export default {
   methods: {
     fetchWeather (e) {
       if (e.key == "Enter") {
+        
         fetch(`${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`)
           .then(res => {
             return res.json();
-          }).then(this.setResults);
-      }
+          }).then(this.setResults)
+          .then(this.query = "");
+      } 
     },
     setResults (results) {
       this.weather = results;
@@ -119,6 +121,7 @@ export default {
       height: 500px;
       border-radius: 20px;
       box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+      position: relative;
       }
 
       #app.warm {
