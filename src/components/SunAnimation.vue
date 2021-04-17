@@ -18,8 +18,8 @@ export default {
         border-radius: 100%;
         right: 20px;
         bottom: 70px;
-        animation: movement 2s infinite alternate ease-in-out;
-        filter: drop-shadow(0px 0px 6px rgb(0, 0, 0, 0.4));
+        animation: movement 3s infinite alternate ease-in-out;
+        filter: drop-shadow(0px 0px 6px rgb(251, 255, 0));
     }
 
     .cloud {
@@ -28,11 +28,11 @@ export default {
         background: white;
         border-radius: 1000px;
         opacity: 0.9;
-        animation: wind 6s infinite linear;
-        filter: drop-shadow(0px 0px 1px);
+        animation: wind 9s infinite linear;
         top: 86%;
-        width: 60px;
-        height: 20px;
+        width: 43px;
+        height: 15px;
+        filter: drop-shadow(0px 0px 2px white)
     }
 
     .cloud::before {
@@ -64,9 +64,9 @@ export default {
         }
         
         to {
-            bottom: 80px;
+            bottom: 85px;
             transform: scale(1.1);
-            opacity: 0.95;
+            opacity: 1;
         }
     }
 
