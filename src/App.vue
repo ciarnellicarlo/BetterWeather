@@ -1,6 +1,6 @@
 <template>
   <div id="container" :class="containerTemperature">
-    <h1>BetterWeather</h1>
+    <h1>Better<br>Weather</h1>
     <main id="app" :class="appTemperature">
         <div class="search-box">
           <input 
@@ -100,6 +100,8 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap');
+
 
 * {
   margin: 0;
@@ -121,10 +123,12 @@ export default {
 
       h1 {
         position: absolute;
-        top: 6vh;
+        top: 4vh;
         color: white;
         text-shadow: 1px 3px 2px rgba(0, 0, 0, 0.25);
         font-style: oblique;
+        text-align: center;
+        font-family: 'Rajdhani'
       }
 
       #app {
