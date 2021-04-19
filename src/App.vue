@@ -1,6 +1,6 @@
 <template>
   <div id="container" :class="containerTemperature">
-    <h1>Better<br>Weather</h1>
+    <h1>BetterWeather</h1>
     <main id="app" :class="appTemperature">
         <div class="search-box">
           <input 
@@ -98,7 +98,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap');
 
 
@@ -108,7 +108,7 @@ export default {
   box-sizing: border-box;
 
   body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 
     #container {
       position: relative;
@@ -122,7 +122,7 @@ export default {
 
       h1 {
         position: absolute;
-        top: 4vh;
+        top: 5vh;
         color: white;
         text-shadow: 1px 3px 2px rgba(0, 0, 0, 0.25);
         font-style: oblique;
@@ -141,6 +141,12 @@ export default {
       box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
       position: relative;
       overflow: hidden;
+      }
+
+      @media screen and (max-width: 600px) {
+        #app {
+          width: 325px;
+        }
       }
 
       #app.warm {
@@ -187,7 +193,6 @@ export default {
       .location-box .location {
         color: white;
         font-size: 32px;
-        font-weight: 500;
         text-align: center;
         text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.4);
       }
@@ -195,7 +200,6 @@ export default {
       .location-box .date {
         color: white;
         font-size: 20px;
-        font-weight: 300;
         font-style: italic;
         text-align: center;
         text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.4);
