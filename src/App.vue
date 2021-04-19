@@ -18,9 +18,6 @@
 
           <SunAnimation v-else-if="weather.weather[0].main=='Clear'">
           </SunAnimation>
-
-          <NoAnimation v-else>
-          </NoAnimation>
         </div>
 
         <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
@@ -31,6 +28,8 @@
           <div class="weather-box">
             <div class="temp">{{ Math.round(weather.main.temp) }}°c</div>
             <div class="weather">{{ weather.weather[0].main }}</div>
+            <div class="min">MIN <br> {{ Math.round(weather.main.temp_min) }}°c</div>
+            <div class="max">MAX <br> {{ Math.round(weather.main.temp_max) }}°c</div>
           </div>
         </div>
     </main>
@@ -40,14 +39,12 @@
 <script>
 import CloudsAnimation from "./components/CloudsAnimation"
 import SunAnimation from "./components/SunAnimation"
-import NoAnimation from "./components/NoAnimation"
 
 export default {
   name: 'App',
   components: { 
     CloudsAnimation, 
     SunAnimation,
-    NoAnimation
     },
   data () {
     return {
@@ -206,6 +203,22 @@ export default {
 
       .weather-box {
         text-align: center;
+
+        .min, .max {
+          position: absolute;
+          color: white;
+          font-weight: bold;
+          bottom: 28px;
+          font-size: 1.2rem;
+        }
+
+        .min {
+          left: 28px;
+        }
+
+        .max {
+          right: 28px;
+        }
       }
 
       .weather-box .temp {
