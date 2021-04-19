@@ -11,15 +11,17 @@
             @keypress="fetchWeather" 
           />
         </div>
+        
+        <div v-if="weather.weather !== undefined">
+          <CloudsAnimation v-if="weather.weather[0].main=='Clouds'">
+          </CloudsAnimation>
 
-        <CloudsAnimation v-if="weather.weather[0].main=='Clouds'">
-        </CloudsAnimation>
+          <SunAnimation v-else-if="weather.weather[0].main=='Clear'">
+          </SunAnimation>
 
-        <SunAnimation v-else-if="weather.weather[0].main=='Clear'">
-        </SunAnimation>
-
-        <NoAnimation v-else>
-        </NoAnimation>
+          <NoAnimation v-else>
+          </NoAnimation>
+        </div>
 
         <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
           <div class="location-box">
