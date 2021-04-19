@@ -18,6 +18,9 @@
 
           <SunAnimation v-else-if="weather.weather[0].main=='Clear'">
           </SunAnimation>
+
+          <RainAnimation>
+          </RainAnimation>
         </div>
 
         <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
@@ -39,12 +42,14 @@
 <script>
 import CloudsAnimation from "./components/CloudsAnimation"
 import SunAnimation from "./components/SunAnimation"
+import RainAnimation from "./components/RainAnimation"
 
 export default {
   name: 'App',
   components: { 
     CloudsAnimation, 
     SunAnimation,
+    RainAnimation
     },
   data () {
     return {
