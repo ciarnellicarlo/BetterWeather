@@ -203,13 +203,16 @@ export default {
 
       .weather-box {
         text-align: center;
+        z-index: 40000;
 
         .min, .max {
           position: absolute;
           color: white;
           font-weight: bold;
-          bottom: 28px;
+          bottom: 32px;
           font-size: 1.2rem;
+          z-index: 400;
+          text-shadow: 0 0 2px black;
         }
 
         .min {
@@ -223,7 +226,7 @@ export default {
 
       .weather-box .temp {
         display: inline-block;
-        padding: 10px 25px;
+        padding: 8px 20px;
         color: white;
         font-size: 82px;
         font-weight: 900;
@@ -236,7 +239,7 @@ export default {
 
       .weather-box .weather {
         color: white;
-        font-size: 48px;
+        font-size: 42px;
         font-weight: 700;
         font-style: italic;
         text-shadow: 3px 6px 1px rgba(0, 0, 0, 0.25)

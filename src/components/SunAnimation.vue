@@ -29,7 +29,7 @@ export default {
         border-radius: 1000px;
         opacity: 0.9;
         animation: wind 9s infinite linear;
-        top: 86%;
+        top: 84%;
         width: 43px;
         height: 15px;
         filter: drop-shadow(0px 0px 2px white)
