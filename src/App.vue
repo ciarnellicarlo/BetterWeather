@@ -26,7 +26,7 @@
             <div class="date">{{ dateBuilder() }}</div>
           </div>
           <div class="weather-box">
-            <div class="temp">{{ Math.round(weather.main.temp) }}°c</div>
+            <div id="temp" :class="tempBackground">{{ Math.round(weather.main.temp) }}°c</div>
             <div class="weather">{{ weather.weather[0].main }}</div>
             <div class="min">MIN <br> {{ Math.round(weather.main.temp_min) }}°c</div>
             <div class="max">MAX <br> {{ Math.round(weather.main.temp_max) }}°c</div>
@@ -65,6 +65,11 @@ export default {
       'warm': typeof this.weather.main != 'undefined' && this.weather.main.temp > 20,
       'cold': typeof this.weather.main != 'undefined' && this.weather.main.temp < 9
     }
+  }, tempBackground: function () {
+    return {
+      'temp-warm': typeof this.weather.main != 'undefined' && this.weather.main.temp > 20,
+      'temp-cold': typeof this.weather.main != 'undefined' && this.weather.main.temp < 9
+    }
   }
   },
   methods: {
@@ -83,7 +88,7 @@ export default {
     },
     dateBuilder () {
       let d = new Date();
-      let months = ["January", "February", "March", "August", "September", "October", "November", "December"];
+      let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
       let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
       let day = days[d.getDay()];
@@ -228,17 +233,25 @@ export default {
         }
       }
 
-      .weather-box .temp {
+      .weather-box #temp {
         display: inline-block;
         padding: 8px 20px;
         color: white;
         font-size: 82px;
         font-weight: 900;
         text-shadow: 3px 6px rgba(0, 0, 0, 0.4);
-        background-color: rgba(255, 255, 255, 0.4);
+        background-color: rgba(52, 166, 191, 0.5);
         border-radius: 16px;
         margin: 30px 0px;
         box-shadow: 3px 6px rgba(0, 0, 0, 0.4);
+      }
+
+      #temp.temp-cold {
+        background-color: rgba(180, 183, 191, 0.4);
+      }
+
+      #temp.temp-warm {
+        background-color: rgba(242,82,170,0.5);
       }
 
       .weather-box .weather {
