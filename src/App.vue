@@ -19,7 +19,7 @@
           <SunAnimation v-else-if="weather.weather[0].main=='Clear'">
           </SunAnimation>
 
-          <RainAnimation>
+          <RainAnimation v-else-if="weather.weather[0].main=='Rain'">
           </RainAnimation>
         </div>
 
