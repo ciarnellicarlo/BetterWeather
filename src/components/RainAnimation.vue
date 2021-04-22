@@ -24,28 +24,8 @@
         <li></li>
         <li></li>
         <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
     </div>
     <div class="rain2">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
         <li></li>
         <li></li>
         <li></li>
@@ -88,6 +68,25 @@
         <li></li>
         <li></li>
         <li></li>
+    </div>
+    <div class="rain4">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
         <li></li>
         <li></li>
         <li></li>
@@ -103,38 +102,50 @@ export default {
 <style scoped lang="scss">
     .rain1 {
         width: 100%;
-        height: 130px;
+        height: 140px;
         position: absolute;
         left: 0;
         bottom: 0;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        animation: raining 0.4s infinite linear;
+        animation: raining 2.8s infinite linear;
     }
 
     .rain2 {
         width: 100%;
-        height: 120px;
+        height: 130px;
         position: absolute;
         left: -20px;
         bottom: 0;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         flex-wrap: wrap;
-        animation: raining 0.6s infinite linear;            
+        animation: raining 1.9s infinite linear;            
     }
 
     .rain3 {
         width: 100%;
-        height: 110px;
+        height: 120px;
         position: absolute;
         left: -10px;
         bottom: 0;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        animation: raining 0.6s infinite linear;            
+        animation: raining 1.1s infinite linear;            
+    }
+
+    .rain4 {
+        width: 100%;
+        height: 150px;
+        position: absolute;
+        left: -30px;
+        bottom: 0;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        animation: raining 1.3s infinite linear;            
     }
 
     li {
@@ -143,7 +154,7 @@ export default {
         background-color: rgba(255, 255, 255, 1);
         list-style-type: none;
         margin: 16px;
-        transform: skew(140deg,140deg) translateX(40px);
+        transform: skew(141deg,141deg) translateX(40px);
         filter: drop-shadow(0 0 1px white);
     }
 
@@ -158,28 +169,28 @@ export default {
     }
 
     .cloud.one {
-        top: 90%;
+        top: 70%;
         width: 60px;
         height: 20px;
     }
 
     .cloud.two {
-        top: 80%;
+        top: 78%;
         width: 45px;
         height: 15px;
         animation-duration: 7s;
     }
 
     .cloud.three {
-        top: 70%;
+        top: 71%;
         width: 50px;
         height: 16px;
         animation-duration: 5s;
     }
 
     .cloud.four {
-        animation: wind 9s infinite linear;
-        top: 84%;
+        animation-duration: 9s;
+        top: 75%;
         width: 43px;
         height: 15px;
     }
@@ -221,11 +232,11 @@ export default {
     @keyframes raining {
         from {
             transform: translate(0);
-            opacity: 0.8;
+            opacity: 0.3;
         }
         to {
-            transform: translate(-45px, 45px);
-            opacity: 0.4;
+            transform: translate(-120px, 120px);
+            opacity: 0.6;
         }
     }
 </style>
