@@ -3,6 +3,7 @@
     <div class="cloud two"></div>
     <div class="cloud three"></div>
     <div class="cloud four"></div>
+    <div class="cloud five"></div>
     <div class="rain1">
         <li></li>
         <li></li>
@@ -164,35 +165,42 @@ export default {
         background: white;
         border-radius: 1000px;
         opacity: 0.9;
-        animation: wind 6s infinite linear;
-        filter: drop-shadow(0px 0px 2px white)
+        animation: wind 10s infinite alternate linear;
+        filter: drop-shadow(0px 0px 2px white);
     }
 
     .cloud.one {
         top: 70%;
-        width: 60px;
-        height: 20px;
+        width: 65px;
+        height: 22px;
     }
 
     .cloud.two {
-        top: 78%;
-        width: 45px;
-        height: 15px;
-        animation-duration: 7s;
+        top: 83%;
+        width: 48px;
+        height: 16px;
+        animation-duration: 11s;
     }
 
     .cloud.three {
         top: 71%;
-        width: 50px;
-        height: 16px;
-        animation-duration: 5s;
+        width: 55px;
+        height: 18px;
+        animation-duration: 8s;
     }
 
     .cloud.four {
-        animation-duration: 9s;
-        top: 75%;
-        width: 43px;
-        height: 15px;
+        animation-duration: 7s;
+        top: 62%;
+        width: 46px;
+        height: 16px;
+    }
+
+    .cloud.five {
+        animation-duration: 12s;
+        top: 68%;
+        width: 70px;
+        height: 25px;
     }
 
     .cloud::before {

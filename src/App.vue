@@ -11,17 +11,6 @@
             @keypress="fetchWeather" 
           />
         </div>
-        
-        <div v-if="weather.weather !== undefined">
-          <CloudsAnimation v-if="weather.weather[0].main=='Clouds'">
-          </CloudsAnimation>
-
-          <SunAnimation v-else-if="weather.weather[0].main=='Clear'">
-          </SunAnimation>
-
-          <RainAnimation v-else-if="weather.weather[0].main=='Rain'">
-          </RainAnimation>
-        </div>
 
         <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
           <div class="location-box">
@@ -35,6 +24,19 @@
             <div class="max">MAX <br> {{ Math.round(weather.main.temp_max) }}°c</div>
           </div>
         </div>
+        
+        <div v-if="weather.weather !== undefined">
+          <CloudsAnimation v-if="weather.weather[0].main=='Clouds'">
+          </CloudsAnimation>
+
+          <SunAnimation v-else-if="weather.weather[0].main=='Clear'">
+          </SunAnimation>
+
+          <RainAnimation v-else-if="weather.weather[0].main=='Rain'">
+          </RainAnimation>
+        </div>
+
+        
     </main>
   </div>
 </template>
@@ -217,7 +219,7 @@ export default {
 
       .weather-box {
         text-align: center;
-        z-index: 40000;
+        z-index: 50000;
 
         .min, .max {
           position: absolute;
@@ -264,7 +266,8 @@ export default {
         font-size: 42px;
         font-weight: 700;
         font-style: italic;
-        text-shadow: 3px 6px 1px rgba(0, 0, 0, 0.25)
+        text-shadow: 3px 6px 1px rgba(0, 0, 0, 0.25);
+        z-index: 1000;
       }
     }
     #container.warm-container{
