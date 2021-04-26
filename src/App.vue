@@ -1,4 +1,9 @@
 <template>
+  <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" 
+    crossorigin="anonymous" 
+  />
   <div id="container" :class="containerTemperature">
     <h1>BetterWeather</h1>
     <main id="app" :class="appTemperature">
@@ -10,6 +15,7 @@
             v-model="query"
             @keypress="fetchWeather" 
           />
+          <i class="fas fa-search" v-on:click="fetchWeather"></i>
         </div>
 
         <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
@@ -178,28 +184,39 @@ export default {
       .search-box {
         width: 100%;
         margin-bottom: 30px;
-      }
+        position: relative;
 
-      .search-box .search-bar {
-        display: block;
-        width: 100%;
-        padding: 15px;
-        color: #313131;
-        font-size: 20px;
-        appearance: none;
-        border: none;
-        outline: none;
-        background: none;
-        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
-        background-color: rgba(255, 255, 255, 0.5);
-        border-radius: 0px 16px 0px 16px;
-        transition: 0.4s;
+        .search-bar {
+          display: block;
+          width: 100%;
+          padding: 15px;
+          color: #313131;
+          font-size: 20px;
+          appearance: none;
+          border: none;
+          outline: none;
+          background: none;
+          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+          background-color: rgba(255, 255, 255, 0.5);
+          border-radius: 12px;
+          transition: 0.4s;
+        }
+
+        i {
+          position: absolute;
+          color: #313131;
+          top: 35%;
+          right: 6%;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
       }
 
       .search-box .search-bar:focus {
         box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
         background-color: rgba(255, 255, 255, 0.75);
-        border-radius: 16px 0px 16px 0px;
       }
 
       .location-box .location {
