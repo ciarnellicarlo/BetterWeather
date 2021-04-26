@@ -162,8 +162,15 @@ export default {
       }
 
       @media screen and (max-width: 600px) {
+        
+        #container {
+          height: 100%;
+        }
+
         #app {
-          width: 325px;
+          width: 100vw;
+          height: 100%;
+          border-radius: 0;
         }
       }
 
