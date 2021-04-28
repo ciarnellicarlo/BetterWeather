@@ -161,19 +161,6 @@ export default {
       overflow: hidden;
       }
 
-      @media screen and (max-width: 600px) {
-        
-        #container {
-          height: 100%;
-        }
-
-        #app {
-          width: 100vw;
-          height: 100%;
-          border-radius: 0;
-        }
-      }
-
       #app.warm {
         background-image: url('./assets/warm.jpg')
       }
@@ -261,6 +248,28 @@ export default {
 
         .max {
           right: 28px;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+
+        #app {
+          width: 100vw;
+          height: 100%;
+          border-radius: 0;
+        }
+
+        
+        .location-box {
+            padding: 12px;
+          }
+
+        #temp {
+            padding: 24px;
+        }
+
+        .min, .max {
+            margin-bottom: 48px;
         }
       }
 
